@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 let page;
 
-test.beforeEach(async({browser})=>{
+test.beforeAll(async({browser})=>{
   page = await browser.newPage();
   await page.goto('https://www.demoblaze.com/index.html');
   await page.getByRole('link', { name: 'Log in' }).click();
@@ -12,7 +12,7 @@ test.beforeEach(async({browser})=>{
   await page.getByRole('button', { name: 'Log in' }).click();
 });
 
-test.afterEach( async ({ browser}) => {
+test.afterAll( async ({ browser}) => {
   await page.locator('#logout2').click()
 });
 
